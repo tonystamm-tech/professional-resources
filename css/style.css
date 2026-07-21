@@ -1,4 +1,20 @@
-/* Reset */
+/* ===========================
+   ROOT
+=========================== */
+
+:root {
+    --navy: #0F172A;
+    --teal: #0D9488;
+    --gold: #D97706;
+    --light: #F8FAFC;
+    --white: #FFFFFF;
+    --text: #334155;
+    --border: #e5e7eb;
+}
+
+/* ===========================
+   RESET
+=========================== */
 
 * {
     margin: 0;
@@ -6,16 +22,20 @@
     box-sizing: border-box;
 }
 
-/* Body */
+/* ===========================
+   BODY
+=========================== */
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f5f7fa;
-    color: #333;
+    background: var(--light);
+    color: var(--text);
     line-height: 1.6;
 }
 
-/* Container */
+/* ===========================
+   CONTAINER
+=========================== */
 
 .container {
     width: 90%;
@@ -23,77 +43,114 @@ body {
     margin: auto;
 }
 
-/* Header */
+/* ===========================
+   HEADER
+=========================== */
 
 header {
-    background: #0B57D0;
-    color: white;
+    background: var(--white);
     padding: 20px 0;
+    border-bottom: 1px solid var(--border);
 }
 
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .logo {
-    font-size: 2rem;
+    display: flex;
+    align-items: center;
 }
+
+.site-logo {
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+/* ===========================
+   NAVIGATION
+=========================== */
 
 nav ul {
     display: flex;
     list-style: none;
-}
-
-nav li {
-    margin-left: 25px;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 nav a {
-    color: white;
     text-decoration: none;
-    font-weight: bold;
+    color: var(--navy);
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: var(--teal);
 }
 
-/* Hero */
+/* ===========================
+   HERO
+=========================== */
 
 .hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 100px 20px;
-    background: white;
+    background: var(--light);
+    padding: 60px 20px;
+}
+
+.hero-logo {
+    width: 420px;
+    max-width: 90%;
+    margin-bottom: 40px;
 }
 
 .hero h2 {
     font-size: 3rem;
+    color: var(--navy);
     margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
+    font-size: 1.25rem;
+    max-width: 800px;
     margin: auto;
+    line-height: 1.7;
 }
+
+/* ===========================
+   BUTTONS
+=========================== */
 
 .button {
     display: inline-block;
     margin-top: 35px;
     padding: 15px 35px;
-    background: #0B57D0;
-    color: white;
+    background: var(--teal);
+    color: var(--white);
     text-decoration: none;
     border-radius: 8px;
+    font-weight: 700;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .button:hover {
-    background: #0845a3;
+    background: #0B7D73;
+    transform: translateY(-2px);
 }
 
-/* Feature Cards */
+/* ===========================
+   FEATURES / CARDS
+=========================== */
 
 .features {
     padding: 60px 0;
@@ -108,13 +165,20 @@ nav a:hover {
 .card {
     flex: 1;
     min-width: 250px;
-    background: white;
+    background: var(--white);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* About */
+.card h3 {
+    color: var(--navy);
+    margin-bottom: 12px;
+}
+
+/* ===========================
+   ABOUT
+=========================== */
 
 .about-preview {
     background: #eef3fb;
@@ -122,11 +186,48 @@ nav a:hover {
     padding: 80px 20px;
 }
 
-/* Footer */
+.about-preview h2 {
+    color: var(--navy);
+    margin-bottom: 16px;
+}
+
+.about-preview p {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
 
 footer {
-    background: #0B57D0;
-    color: white;
+    background: var(--navy);
+    color: var(--white);
     text-align: center;
     padding: 25px;
+    margin-top: 40px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1.05rem;
+    }
 }
